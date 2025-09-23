@@ -1,4 +1,23 @@
-asjdjdgjagh
-gfhsagfjkf
-sdfshfjkahl
+# Variables
+resourceGroup="MyResourceGroup"
+location="eastus"
+vmName="MyLinuxVM"
+image="UbuntuLTS"
+adminUsername="azureuser"
+adminPassword="YourSecurePassword123!"  # Use SSH key for better security
+
+# Create a resource group
+az group create --name $resourceGroup --location $location
+
+# Create the virtual machine
+az vm create \
+  --resource-group $resourceGroup \
+  --name $vmName \
+  --image $image \
+  --admin-username $adminUsername \
+  --admin-password $adminPassword \
+  --size Standard_DS1_v2 \
+  --authentication-type password
+
+# Open port 22 for SSH access
 
